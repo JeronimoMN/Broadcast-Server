@@ -1,0 +1,15 @@
+[project]
+name = "cli"
+version = "1.0.0"
+description = "Init a Websocket Server"
+requires-python = "3.12"
+dependencies = [
+    "click>=8.2",
+]
+
+[project.scripts]
+broadcast-server = "cli:broadcast_server"
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
