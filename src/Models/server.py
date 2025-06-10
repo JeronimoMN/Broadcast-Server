@@ -1,6 +1,5 @@
 import asyncio
 import websockets
-from websockets import broadcast
 
 class BroadcastServer:
     def __init__(self):
@@ -20,10 +19,11 @@ class BroadcastServer:
                 for client in self.clients:
                     if client != websocket:
                         await client.send(message)
+
         except websockets.exceptions.ConnectionClosed as e:
             print('Client disconnected', e)
         finally:
-            self.clients.remove(websocket)
+            pass
 
 
     async def start_server(self):
@@ -42,6 +42,10 @@ class BroadcastServer:
 
         except Exception as e:
             print(e)
+
+    #async def status_server(self):
+    #    pass
+    #    return self.server.
 
 
 async def main():
